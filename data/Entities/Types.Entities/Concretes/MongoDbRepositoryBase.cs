@@ -31,14 +31,15 @@ namespace Types.Entities.Concretes
                 : Collection.AsQueryable().Where(predicate);
         }
 
-        public virtual Task<T> GetAsync(Expression<Func<T, bool>> predicate)
+        public virtual async Task<T> GetAsync(Expression<Func<T, bool>> predicate)
         {
-            return Collection.Find(predicate).FirstOrDefaultAsync();
+            return await Collection.Find(predicate).FirstOrDefaultAsync();
         }
 
-        public virtual Task<T> GetByIdAsync(string id)
+        public virtual async Task<T> GetByIdAsync(string id)
         {
-            return Collection.Find(x => x.Id == id).FirstOrDefaultAsync();
+            var collection = Collection;
+            return await Collection.Find(x => x.Id == id).FirstOrDefaultAsync();
         }
 
         public virtual async Task<T> AddAsync(T entity)

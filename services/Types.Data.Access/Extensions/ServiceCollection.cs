@@ -15,8 +15,8 @@ namespace Types.Data.Access.Extensions
     {
         public static IServiceCollection AddDataServices(this IServiceCollection services)
         {
-            services.AddSingleton<IAdminService, AdminService>();
-            services.AddSingleton<IDutyService, DutyService>();
+            services.AddScoped<IAdminService, AdminService>();
+            services.AddScoped<IDutyService, DutyService>();
 
             return services;
         }
