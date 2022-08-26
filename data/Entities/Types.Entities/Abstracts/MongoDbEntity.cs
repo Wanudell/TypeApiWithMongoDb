@@ -12,7 +12,7 @@ namespace Types.Entities.Abstracts
     {
         [BsonRepresentation(BsonType.ObjectId)]
         [BsonId]
-        public string Id { get; } = ObjectId.GenerateNewId().ToString();
+        public string Id { get; set; }
 
         [BsonRepresentation(BsonType.DateTime)]
         [BsonDateTimeOptions(Kind = DateTimeKind.Utc)]

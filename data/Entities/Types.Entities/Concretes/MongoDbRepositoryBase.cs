@@ -1,5 +1,7 @@
 ﻿using Microsoft.Extensions.Options;
+using MongoDB.Bson;
 using MongoDB.Driver;
+using MongoDB;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,7 +40,6 @@ namespace Types.Entities.Concretes
 
         public virtual async Task<T> GetByIdAsync(string id)
         {
-            var collection = Collection;
             return await Collection.Find(x => x.Id == id).FirstOrDefaultAsync();
         }
 

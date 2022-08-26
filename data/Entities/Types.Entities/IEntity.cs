@@ -14,7 +14,7 @@ namespace Types.Entities
 
     public interface IEntity<out TKey> : IEntity where TKey : IEquatable<TKey>
     {
-        public TKey Id { get; }
+        public string Id { get; }
 
         DateTime CreatedAt { get; set; }
     }
